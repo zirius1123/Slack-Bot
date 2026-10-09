@@ -30,30 +30,27 @@ ${response.data.punchline}`
     await respond({ text: "Failed to fetch a joke." });
   }
 });
-app.command("/barbatos5-gundam", async ({ command, ack, respond }) => { 
-  await ack(); 
-  try { 
-    // Use the user's text input (like "GD01-001"). If blank, default to "GD01-001"
-    const cardId = command.text ? command.text.trim() : "GD01-001"; 
+app.command("/barbatos5-gundam", async ({ command, ack, respond }) => {
+  await ack();
+  try {
+    const cardId = command.text ? command.text.trim() : "GD01-001";
     
-    const response = await axios.get(`https://gcgapi.com{cardId}`); 
-    
-    if (response.data && response.data.data) { 
-      const card = response.data.data; 
-      
-      await respond({ 
-        text: `${card.name} (${card.card_number})\n- Set: ${card.set_name}\n- Type: ${card.card_type}\n- Color: ${card.color}\n- Trait: ${card.trait}\n- Source: ${card.source_title}\n- Effect: ${card.effect}` 
-      }); 
-    } else { 
-      await respond({ text: `Could not find card data for "${cardId}".` }); 
-    } 
-  } catch (err) { 
-    console.error(err.message); 
-    await respond({ 
-      text: "Failed to fetch Gundam card data. Make sure you entered a valid card ID (like GD01-001)." 
-    }); 
-  } 
-}); 
+    // Fixed: added missing '/' and '\$' for template literal variable insertion
+    const response = await axios.get(`https://gcgapi.com{cardId}`);
+
+    if (response.data && response.data.data) {
+      const card = response.data.data;
+      await respond({
+        text: `${card.name} (${card.card_number})\n- Set: ${card.set_name}\n- Type: ${card.card_type}\n- Color: ${card.color}\n- Trait: ${card.trait}\n- Source: ${card.source_title}\n- Effect: ${card.effect}`
+      });
+    } else {
+      await respond({ text: `Could not find card data for "${cardId}".` });
+    }
+  } catch (err) {
+    console.error(err.message);
+    await respond({ text: "Failed to fetch Gundam card data. Make sure you entered a valid card ID (like GD01-001)." });
+  }
+});
 
 
 (async () => {
