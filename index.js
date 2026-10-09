@@ -66,6 +66,8 @@ app.command("/barbatos5-help", async ({ ack, respond }) => {
     text:
 `Available Commands:
 /barbatos5-ping - Check bot latency
-/barbatos5-catfact - Get a cat fact`
+/barbatos5-help - Get Help
+/barbatos5-gundam - Get gundam card details if you input a valid ID
+/barbatos5-joke - Get a joke`
   });
 });
