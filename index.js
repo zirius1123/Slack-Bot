@@ -30,37 +30,30 @@ ${response.data.punchline}`
     await respond({ text: "Failed to fetch a joke." });
   }
 });
-app.command("/barbatos5-gundam", async ({ command, ack, respond }) => {
-  await ack();
-
-  try {
-    const searchQuery = command.text ? `?name=${encodeURIComponent(command.text)}` : '';
-    const response = await axios.get(`http://localhost:3000/gunpla${searchQuery}`);
-
-    if (response.data.data && Array.isArray(response.data.data)) {
-      if (response.data.data.length === 0) {
-        await respond({ text: `No Gundam kits found matching "${command.text}".` });
-        return;
-      }
-
-      const kitList = response.data.data.map(kit => 
-        `🤖 *${kit.name}*\n• Series: ${kit.series}\n• Price: ${kit.price}\n• Release: ${kit.release}`
-      ).join('\n\n');
-
-      await respond({ text: `Here are the matching kits I found:\n\n${kitList}` });
-    } else if (response.data.data) {
-      const kit = response.data.data;
-      await respond({
-        text: `*${kit.name}*\n• Series: ${kit.series}\n• Manufacturer: ${kit.manufacturer}\n• Height: ${kit.height}m\n• Price: ${kit.price}\n• Release: ${kit.release}`
-      });
-    } else {
-      await respond({ text: "Could not find any data." });
-    }
-
-  } catch (err) {
-    await respond({ text: "Failed to fetch Gundam data." });
-  }
-});
+app.command("/barbatos5-gundam", async ({ command, ack, respond }) => { 
+  await ack(); 
+  try { 
+    // Use the user's text input (like "GD01-001"). If blank, default to "GD01-001"
+    const cardId = command.text ? command.text.trim() : "GD01-001"; 
+    
+    const response = await axios.get(`https://gcgapi.com{cardId}`); 
+    
+    if (response.data && response.data.data) { 
+      const card = response.data.data; 
+      
+      await respond({ 
+        text: `${card.name} (${card.card_number})\n- Set: ${card.set_name}\n- Type: ${card.card_type}\n- Color: ${card.color}\n- Trait: ${card.trait}\n- Source: ${card.source_title}\n- Effect: ${card.effect}` 
+      }); 
+    } else { 
+      await respond({ text: `Could not find card data for "${cardId}".` }); 
+    } 
+  } catch (err) { 
+    console.error(err.message); 
+    await respond({ 
+      text: "Failed to fetch Gundam card data. Make sure you entered a valid card ID (like GD01-001)." 
+    }); 
+  } 
+}); 
 
 
 (async () => {
