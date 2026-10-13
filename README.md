@@ -1,6 +1,6 @@
 Slack-bot
 
-A short, punchy description explaining what this Slack Bot does and its main purpose.
+Basic slack bot that can give you jokes. Can also check if running and for options.
 
 
 * Barbato5/ping - Checks to see if bot runs.
