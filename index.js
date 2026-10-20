@@ -30,29 +30,6 @@ ${response.data.punchline}`
     await respond({ text: "Failed to fetch a joke." });
   }
 });
-app.command("/barbatos5-gundam", async ({ command, ack, respond }) => {
-  await ack();
-  try {
-    const cardId = command.text ? command.text.trim() : "GD01-001";
-    
-    // Fixed: added missing '/' and '\$' for template literal variable insertion
-    const response = await axios.get(`https://gcgapi.com{cardId}`);
-
-    if (response.data && response.data.data) {
-      const card = response.data.data;
-      await respond({
-        text: `${card.name} (${card.card_number})\n- Set: ${card.set_name}\n- Type: ${card.card_type}\n- Color: ${card.color}\n- Trait: ${card.trait}\n- Source: ${card.source_title}\n- Effect: ${card.effect}`
-      });
-    } else {
-      await respond({ text: `Could not find card data for "${cardId}".` });
-    }
-  } catch (err) {
-    console.error(err.message);
-    await respond({ text: "Failed to fetch Gundam card data. Make sure you entered a valid card ID (like GD01-001)." });
-  }
-});
-
-
 (async () => {
   await app.start();
   console.log("bot is running!");
@@ -64,7 +41,6 @@ app.command("/barbatos5-help", async ({ ack, respond }) => {
 `Available Commands:
 /barbatos5-ping - Check bot latency
 /barbatos5-help - Get Help
-/barbatos5-gundam - Get gundam card details if you input a valid ID
 /barbatos5-joke - Get a joke`
   });
 });
