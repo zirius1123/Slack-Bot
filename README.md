@@ -1,4 +1,4 @@
-//Slack-bot
+## Slack-bot
 
 This is my basic slack bot that can give you jokes. Can also check if running and for options.
 
@@ -6,17 +6,18 @@ This is my basic slack bot that can give you jokes. Can also check if running an
 
 
 These are the commands you can use.
-* Barbato5/ping - Checks to see if bot runs.
-* Barbatos5/joke - Gives you a random joke.
-* Barbatos5/help - Gives you a list of possible commands.
-* Barbatos5/gundam - DOES NOT WORK. Can't remove for some reason
-
+* /Barbato5-ping - Checks to see if bot runs.
+* /Barbatos5-joke - Gives you a random joke.
+* /Barbatos5-help - Gives you a list of possible commands.
+* /Barbatos5-gundam - DOES NOT WORK. Can't remove for some reason
+# Demo
 Demo link: https://app.slack.com/client/E09V59WQY1E/C0P5NE354?_gl=1*hwz6f*_gcl_au*ODg3MTcwODYyLjE3OTA2NDU0MDMuLS4tLjE3OTA2NDU0MDMuMTA2NzQ1MDAyNi4xNzkwNjQ1NDA0LjE3OTA2NTAwMTY.
 Set-up
 
-Clone the repository and install dependancies. Then run the start bot code below in the file terminal(The slack bot file).
+ - Clone the repository and install dependancies.
+ - Then run the start bot code below in the file terminal(The slack bot file).
 
-Cloning the repository
+# Cloning the repository
    ```bash
    git clone https://github.com
    cd Slack-Bot
