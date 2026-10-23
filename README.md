@@ -31,9 +31,9 @@ Start the bot
    npm start
    ```
 
-Dependencies
+# Dependencies
 This slack bot used:
-Node.js
-Slack/bolt
-VS code
-Nest
+- Node.js
+- Slack/bolt
+- VS code
+- Nest
