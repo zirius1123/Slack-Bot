@@ -11,7 +11,9 @@ These are the commands you can use.
 * /Barbatos5-help - Gives you a list of possible commands.
 * /Barbatos5-gundam - DOES NOT WORK. Can't remove for some reason
 # Demo
-Demo link: https://app.slack.com/client/E09V59WQY1E/C0P5NE354?_gl=1*hwz6f*_gcl_au*ODg3MTcwODYyLjE3OTA2NDU0MDMuLS4tLjE3OTA2NDU0MDMuMTA2NzQ1MDAyNi4xNzkwNjQ1NDA0LjE3OTA2NTAwMTY.
+Demo link: 
+
+https://app.slack.com/client/E09V59WQY1E/C0P5NE354?_gl=1*hwz6f*_gcl_au*ODg3MTcwODYyLjE3OTA2NDU0MDMuLS4tLjE3OTA2NDU0MDMuMTA2NzQ1MDAyNi4xNzkwNjQ1NDA0LjE3OTA2NTAwMTY.
 
 
 ## Set-up
