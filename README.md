@@ -24,11 +24,11 @@ Demo link: https://app.slack.com/client/E09V59WQY1E/C0P5NE354?_gl=1*hwz6f*_gcl_a
    git clone https://github.com
    cd Slack-Bot
    ```
-Installing dependencies
+### Installing dependencies
    ```bash
    npm install
    ```
-Start the bot
+### Starting the bot
    ```bash
    npm start
    ```
